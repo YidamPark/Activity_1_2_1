@@ -68,15 +68,24 @@ def countdown():
   if timer <= 0:
     counter.write("Time's Up", font=font_setup)
     timer_up = True
+
   else:
     counter.write("Timer: " + str(timer), font=font_setup)
     timer -= 1
     counter.getscreen().ontimer(countdown, counter_interval) 
 
+#-----colors-----
+colors = ["purple", "aqua", "green", "black"]
+
+def add_color():
+  spot.stamp()
+  rand.choice(colors)
+add_color()
+  
 
 #-----events----------------
 spot.onclick(spot_clicked)
 wn = trtl.Screen()
-wn.ontimer(countdown, counter_interval)
 wn.bgcolor("sky blue")
+wn.ontimer(countdown, counter_interval)
 wn.mainloop()
